@@ -19,8 +19,8 @@ export const supabase = isSupabaseConfigured
 
 // Local Storage Fallback Store Keys
 const STORAGE_KEYS = {
-  PRODUCTS: 'rtw_products_v1',
-  CATEGORIES: 'rtw_categories_v1',
+  PRODUCTS: 'rtw_products_v2',
+  CATEGORIES: 'rtw_categories_v2',
   ENQUIRIES: 'rtw_enquiries_v1',
   SETTINGS: 'rtw_settings_v1',
   ADMIN_SESSION: 'rtw_admin_session_v1'

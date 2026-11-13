@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
-import { MessageCircle, ArrowRight, Layers, Ruler, Box } from 'lucide-react';
+import { MessageCircle, ArrowRight, Layers, Ruler, Box, Check, Sparkles, Shield, Disc } from 'lucide-react';
 import { getWhatsAppLink } from '../../lib/utils';
 import ProductIllustration from '../ui/ProductIllustration';
 
 export default function ProductCard({ product }) {
   const { t, lang } = useLanguage();
+  const [selectedVariantIdx, setSelectedVariantIdx] = useState(0);
 
   // Localized fields
   const name = lang === 'gu' ? product.nameGu || product.name : (lang === 'hi' ? product.nameHi || product.name : product.name);
@@ -15,34 +16,47 @@ export default function ProductCard({ product }) {
   const priceDisplay = lang === 'gu' ? product.priceGu || product.price : (lang === 'hi' ? product.priceHi || product.price : product.price);
   const availability = lang === 'gu' ? product.availabilityGu || product.availability : (lang === 'hi' ? product.availabilityHi || product.availability : product.availability);
 
-  const whatsappUrl = getWhatsAppLink({ product });
+  // Variant resolution
+  const hasVariants = product.variants && product.variants.length > 0;
+  const currentVariant = hasVariants ? product.variants[selectedVariantIdx] : null;
+  const currentImage = currentVariant ? currentVariant.image : (product.images && product.images[0] ? product.images[0] : null);
+
+  const selectedVariantLabel = currentVariant 
+    ? (lang === 'gu' ? currentVariant.labelGu || currentVariant.label : (lang === 'hi' ? currentVariant.labelHi || currentVariant.label : currentVariant.label))
+    : '';
+
+  const whatsappUrl = getWhatsAppLink({ 
+    product, 
+    variant: selectedVariantLabel,
+    includeTrolley: product.hasTrolleyOption 
+  });
 
   return (
     <div className="group bg-white rounded-2xl border-2 border-carbon overflow-hidden flex flex-col justify-between shadow-brutal hover:-translate-y-1 hover:shadow-brutal-lg transition-all duration-300">
       
       {/* Product Image / Illustration Canvas */}
-      <div className="relative bg-cream-light p-6 border-b-2 border-carbon aspect-[4/3] flex items-center justify-center overflow-hidden">
+      <div className="relative bg-white p-4 border-b-2 border-carbon aspect-[4/3] flex items-center justify-center overflow-hidden">
         
         {/* Badges */}
         <div className="absolute top-3 left-3 z-10 flex flex-wrap gap-1.5">
           {product.featured && (
-            <span className="px-2.5 py-1 rounded-md bg-orange-electric text-white font-mono text-[10px] font-bold uppercase tracking-wider shadow-sm">
+            <span className="px-2.5 py-0.5 rounded-md bg-orange-electric text-white font-mono text-[10px] font-bold uppercase tracking-wider shadow-sm">
               Featured
             </span>
           )}
           {availability && (
-            <span className="px-2.5 py-1 rounded-md bg-carbon text-cream font-mono text-[10px] font-semibold tracking-wider">
+            <span className="px-2.5 py-0.5 rounded-md bg-carbon text-cream font-mono text-[10px] font-semibold tracking-wider">
               {availability}
             </span>
           )}
         </div>
 
         {/* Product Visual */}
-        {product.images && product.images.length > 0 && product.images[0].startsWith('http') ? (
+        {currentImage ? (
           <img
-            src={product.images[0]}
-            alt={name}
-            className="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-500"
+            src={currentImage}
+            alt={`${name} - ${selectedVariantLabel || 'Studio View'}`}
+            className="w-full h-full object-contain p-2 rounded-lg group-hover:scale-105 transition-transform duration-500"
             loading="lazy"
           />
         ) : (
@@ -55,6 +69,33 @@ export default function ProductCard({ product }) {
           {product.id}
         </div>
       </div>
+
+      {/* Lamination Finish Selector Pills if available */}
+      {hasVariants && (
+        <div className="bg-cream-dark/60 px-4 py-2 border-b border-carbon/10 flex items-center justify-between gap-1">
+          <span className="text-[10px] font-mono font-bold text-carbon/60 uppercase">Finish:</span>
+          <div className="flex items-center gap-1">
+            {product.variants.map((v, idx) => {
+              const isSelected = selectedVariantIdx === idx;
+              const vLabel = lang === 'gu' ? v.labelGu || v.label : (lang === 'hi' ? v.labelHi || v.label : v.label);
+              return (
+                <button
+                  key={v.id || idx}
+                  onClick={() => setSelectedVariantIdx(idx)}
+                  className={`px-2 py-0.5 rounded-full text-[10px] font-bold font-mono transition-all ${
+                    isSelected
+                      ? 'bg-carbon text-cream shadow-sm'
+                      : 'bg-white text-carbon/70 hover:bg-cream border border-carbon/20'
+                  }`}
+                  title={vLabel}
+                >
+                  {v.id === 'without-lamination' ? '✨ No Film' : '🛡️ Film'}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Product Content Body */}
       <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
@@ -76,8 +117,18 @@ export default function ProductCard({ product }) {
             {description}
           </p>
 
+          {/* Trolley Feature Callout if available */}
+          {product.hasTrolleyOption && (
+            <div className="mt-2.5 p-2 rounded-xl bg-orange-50 border border-orange-200/80 flex items-center gap-2 text-[11px] text-orange-950">
+              <Disc className="w-3.5 h-3.5 text-orange-electric shrink-0 animate-spin-slow" />
+              <span className="font-semibold truncate">
+                {t.featured.trolleyAvailable || 'Movable Wheeled Trolley Base Available'}
+              </span>
+            </div>
+          )}
+
           {/* Specs Mini Bento */}
-          <div className="grid grid-cols-2 gap-2 mt-3.5 pt-3 border-t border-carbon/10 text-[11px]">
+          <div className="grid grid-cols-2 gap-2 mt-3 pt-3 border-t border-carbon/10 text-[11px]">
             {material && (
               <div className="flex items-center gap-1.5 text-carbon/80 truncate">
                 <Layers className="w-3.5 h-3.5 text-orange-electric shrink-0" />

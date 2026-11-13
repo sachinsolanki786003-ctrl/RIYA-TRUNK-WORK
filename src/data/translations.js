@@ -51,7 +51,12 @@ export const translations = {
       specCapacity: "ક્ષમતા",
       contactForPrice: "ભાવ માટે સંપર્ક કરો",
       inStock: "સ્ટોકમાં ઉપલબ્ધ",
-      onOrder: "ઓર્ડર પર ઉપલબ્ધ"
+      onOrder: "ઓર્ડર પર ઉપલબ્ધ",
+      withLamination: "લેમિનેશન સાથે",
+      withoutLamination: "લેમિનેશન વગર",
+      trolleyAvailable: "વ્હીલવાળી ટ્રોલી ઉપલબ્ધ",
+      trolleyOption: "પૈડાંવાળી ટ્રોલી ઉપલબ્ધ (Trolley)",
+      trolleyDesc: "ટ્રંક અને કોઠીને સહેલાઈથી ફેરવવા માટે હેવી-ડ્યુટી વ્હીલ ટ્રોલી બેઝ ઉપલબ્ધ છે."
     },
     story: {
       heading: "MADE FOR STORAGE. DESIGNED FOR EVERYDAY LIFE.",
@@ -146,7 +151,13 @@ export const translations = {
       quickEnquiry: "ઝડપી વોટ્સએપ પૂછપરછ",
       orderDirect: "કૉલ દ્વારા ઓર્ડર આપો",
       enquiryFormTitle: "આ પ્રોડક્ટ અંગે પૂછપરછ કરો",
-      relatedTitle: "સંબંધિત પ્રોડક્ટ્સ"
+      relatedTitle: "સંબંધિત પ્રોડક્ટ્સ",
+      laminationSelector: "ફિનિશ પસંદ કરો:",
+      withLamination: "લેમિનેશન સાથે (પ્રોટેક્ટિવ ફિલ્મ)",
+      withoutLamination: "લેમિનેશન વગર (પ્યોર મિરર ફિનિશ)",
+      trolleyHeading: "વ્હીલવાળી ટ્રોલી (Trolley Base Option)",
+      trolleyBenefit: "સરળતાથી ખસેડવા અને ફ્લોર સફાઈ માટે હેવી-ડ્યુટી 360° વ્હીલ્સ સાથેની મજબૂત ટ્રોલી બેઝ ઉપલબ્ધ છે.",
+      includeTrolleyCheck: "વ્હીલવાળી ટ્રોલી સાથે જોઈએ છે (+ Trolley Base)"
     },
     about: {
       title: "BUILT AROUND BETTER STORAGE.",
@@ -224,7 +235,12 @@ export const translations = {
       specCapacity: "क्षमता",
       contactForPrice: "मूल्य के लिए संपर्क करें",
       inStock: "स्टॉक में उपलब्ध",
-      onOrder: "ऑर्डर पर तैयार"
+      onOrder: "ऑर्डर पर तैयार",
+      withLamination: "लेमिनेशन के साथ",
+      withoutLamination: "बिना लेमिनेशन",
+      trolleyAvailable: "पहियों वाली ट्रॉली उपलब्ध",
+      trolleyOption: "पहियों वाली हेवी-ड्यूटी ट्रॉली (Trolley)",
+      trolleyDesc: "ट्रंक और अनाज ड्रम को आसानी से खिसकाने के लिए मजबूत व्हील ट्रॉली बेस उपलब्ध है।"
     },
     story: {
       heading: "MADE FOR STORAGE. DESIGNED FOR EVERYDAY LIFE.",
@@ -319,7 +335,13 @@ export const translations = {
       quickEnquiry: "त्वरित व्हाट्सएप पूछताछ",
       orderDirect: "कॉल द्वारा ऑर्डर करें",
       enquiryFormTitle: "इस उत्पाद के बारे में पूछताछ करें",
-      relatedTitle: "संबंधित उत्पाद"
+      relatedTitle: "संबंधित उत्पाद",
+      laminationSelector: "फिनिश चुनें:",
+      withLamination: "लेमिनेशन के साथ (सुरक्षात्मक फिल्म)",
+      withoutLamination: "बिना लेमिनेशन (प्रीमियम मिरर फिनिश)",
+      trolleyHeading: "व्हील ट्रॉली विकल्प (Trolley Base Option)",
+      trolleyBenefit: "आसानी से खिसकाने और फर्श की सफाई हेतु 360° पहियों वाली मजबूत हेवी-ड्यूटी ट्रॉली बेस उपलब्ध है।",
+      includeTrolleyCheck: "पहियों वाली ट्रॉली के साथ चाहिए (+ Trolley Base)"
     },
     about: {
       title: "BUILT AROUND BETTER STORAGE.",
@@ -397,7 +419,12 @@ export const translations = {
       specCapacity: "Capacity",
       contactForPrice: "Contact for Price",
       inStock: "In Stock",
-      onOrder: "Available on Order"
+      onOrder: "Available on Order",
+      withLamination: "With Lamination",
+      withoutLamination: "Without Lamination",
+      trolleyAvailable: "Wheeled Trolley Available",
+      trolleyOption: "Movable Wheeled Trolley Base (Optional)",
+      trolleyDesc: "Heavy-duty 360° castor wheel trolley base available for effortless movement and floor cleaning."
     },
     story: {
       heading: "MADE FOR STORAGE. DESIGNED FOR EVERYDAY LIFE.",
@@ -492,7 +519,13 @@ export const translations = {
       quickEnquiry: "Enquire on WhatsApp",
       orderDirect: "Call to Order",
       enquiryFormTitle: "Send Enquiry for this Product",
-      relatedTitle: "Related Storage Products"
+      relatedTitle: "Related Storage Products",
+      laminationSelector: "Select Surface Finish:",
+      withLamination: "With Lamination (Protective Film)",
+      withoutLamination: "Without Lamination (Mirror SS Finish)",
+      trolleyHeading: "Wheeled Trolley Base Option",
+      trolleyBenefit: "Custom heavy-duty rolling trolley base with 360° castor wheels for effortless repositioning and easy floor cleaning.",
+      includeTrolleyCheck: "Include Wheeled Trolley Base (+ Rolling Trolley)"
     },
     about: {
       title: "BUILT AROUND BETTER STORAGE.",

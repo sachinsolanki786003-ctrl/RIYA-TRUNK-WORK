@@ -7,7 +7,7 @@ import EnquiryModal from '../components/products/EnquiryModal';
 import ProductCard from '../components/products/ProductCard';
 import { 
   ArrowLeft, MessageCircle, Phone, ShieldCheck, Ruler, 
-  Layers, Box, CheckCircle2, Share2, AlertCircle 
+  Layers, Box, CheckCircle2, Share2, AlertCircle, Disc, Sparkles, Shield 
 } from 'lucide-react';
 import { getWhatsAppLink, getPhoneLink } from '../lib/utils';
 
@@ -18,6 +18,8 @@ export default function ProductDetailPage() {
   const { products, settings } = useBusiness();
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedQty, setSelectedQty] = useState('1');
+  const [selectedVariantIdx, setSelectedVariantIdx] = useState(0);
+  const [includeTrolley, setIncludeTrolley] = useState(false);
 
   // Find product by slug or id
   const product = products.find(p => p.slug === id || p.id === id);
@@ -42,12 +44,26 @@ export default function ProductDetailPage() {
   const priceDisplay = lang === 'gu' ? product.priceGu || product.price : (lang === 'hi' ? product.priceHi || product.price : product.price);
   const availability = lang === 'gu' ? product.availabilityGu || product.availability : (lang === 'hi' ? product.availabilityHi || product.availability : product.availability);
 
+  // Variant resolution
+  const hasVariants = product.variants && product.variants.length > 0;
+  const currentVariant = hasVariants ? product.variants[selectedVariantIdx] : null;
+  const currentImage = currentVariant ? currentVariant.image : (product.images && product.images[0] ? product.images[0] : null);
+
+  const selectedVariantLabel = currentVariant 
+    ? (lang === 'gu' ? currentVariant.labelGu || currentVariant.label : (lang === 'hi' ? currentVariant.labelHi || currentVariant.label : currentVariant.label))
+    : '';
+
   // Related products
   const relatedProducts = products
     .filter(p => p.id !== product.id && p.category_id === product.category_id)
     .slice(0, 3);
 
-  const whatsappUrl = getWhatsAppLink({ product, quantity: selectedQty });
+  const whatsappUrl = getWhatsAppLink({ 
+    product, 
+    quantity: selectedQty,
+    variant: selectedVariantLabel,
+    includeTrolley
+  });
 
   return (
     <div className="py-10 bg-cream min-h-screen">
@@ -68,7 +84,7 @@ export default function ProductDetailPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
           
           {/* Left Column: Image Canvas Gallery (6 Cols) */}
-          <div className="lg:col-span-6 bg-white rounded-3xl border-3 border-carbon p-8 shadow-brutal-lg flex flex-col justify-between overflow-hidden">
+          <div className="lg:col-span-6 bg-white rounded-3xl border-3 border-carbon p-6 sm:p-8 shadow-brutal-lg flex flex-col justify-between overflow-hidden">
             
             <div className="flex items-center justify-between pb-4 border-b border-carbon/10">
               <span className="font-mono text-xs font-bold text-orange-electric uppercase tracking-wider">
@@ -79,13 +95,13 @@ export default function ProductDetailPage() {
               </span>
             </div>
 
-            {/* Main Visual Display */}
-            <div className="my-8 py-6 flex items-center justify-center">
-              {product.images && product.images.length > 0 && product.images[0].startsWith('http') ? (
+            {/* Main Visual Display on Pure Studio White Background */}
+            <div className="my-6 py-4 flex items-center justify-center min-h-[320px] sm:min-h-[380px] bg-white rounded-2xl">
+              {currentImage ? (
                 <img
-                  src={product.images[0]}
-                  alt={name}
-                  className="w-full h-80 object-cover rounded-2xl shadow-sm"
+                  src={currentImage}
+                  alt={`${name} - ${selectedVariantLabel || 'Studio View'}`}
+                  className="max-h-[380px] w-auto max-w-full object-contain drop-shadow-md transition-all duration-300"
                 />
               ) : (
                 <div className="w-full h-72 sm:h-80 flex items-center justify-center">
@@ -94,8 +110,46 @@ export default function ProductDetailPage() {
               )}
             </div>
 
+            {/* Separate Images / Variant Switcher Gallery */}
+            {hasVariants && (
+              <div className="pt-4 border-t border-carbon/10 space-y-2">
+                <div className="text-[11px] font-mono font-bold text-carbon/70 uppercase flex items-center justify-between">
+                  <span>{t.productDetail.laminationSelector || 'Select Finish / View Variations:'}</span>
+                  <span className="text-orange-electric">{selectedVariantLabel}</span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3">
+                  {product.variants.map((v, idx) => {
+                    const isSelected = selectedVariantIdx === idx;
+                    const vLabel = lang === 'gu' ? v.labelGu || v.label : (lang === 'hi' ? v.labelHi || v.label : v.label);
+                    return (
+                      <button
+                        key={v.id || idx}
+                        onClick={() => setSelectedVariantIdx(idx)}
+                        className={`p-2.5 rounded-2xl border-2 transition-all flex items-center gap-3 text-left ${
+                          isSelected
+                            ? 'border-carbon bg-cream shadow-brutal-sm'
+                            : 'border-carbon/20 bg-cream-light hover:border-carbon/60'
+                        }`}
+                      >
+                        <div className="w-12 h-12 rounded-xl bg-white border border-carbon/20 p-1 flex items-center justify-center shrink-0 overflow-hidden">
+                          <img src={v.image} alt={vLabel} className="w-full h-full object-contain" />
+                        </div>
+                        <div className="overflow-hidden">
+                          <div className="font-bold text-xs text-carbon truncate">{vLabel}</div>
+                          <div className="text-[10px] text-carbon/60 font-mono mt-0.5">
+                            {v.id === 'without-lamination' ? '✨ Pure Mirror' : '🛡️ Protective Film'}
+                          </div>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
             {/* Badges Bar */}
-            <div className="pt-4 border-t border-carbon/10 flex flex-wrap items-center justify-between gap-2 text-xs">
+            <div className="pt-4 mt-4 border-t border-carbon/10 flex flex-wrap items-center justify-between gap-2 text-xs">
               <span className="inline-flex items-center gap-1 font-bold text-carbon">
                 <CheckCircle2 className="w-4 h-4 text-orange-electric" />
                 <span>{availability || 'Available at Shop No. 6'}</span>
@@ -175,6 +229,39 @@ export default function ProductDetailPage() {
                 )}
 
               </div>
+
+              {/* Trolley Feature Add-on Card */}
+              {product.hasTrolleyOption && (
+                <div className="p-4 rounded-2xl bg-orange-50/80 border-2 border-orange-300 space-y-2">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Disc className="w-4 h-4 text-orange-electric animate-spin-slow" />
+                      <span className="font-display font-extrabold text-xs text-orange-950 uppercase tracking-wide">
+                        {t.productDetail.trolleyHeading || 'Heavy-Duty Wheeled Trolley Base'}
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-orange-electric text-white">
+                      ADD-ON
+                    </span>
+                  </div>
+
+                  <p className="text-xs text-orange-900/80 leading-relaxed font-sans">
+                    {t.productDetail.trolleyBenefit || 'Specially fabricated rolling trolley base with 360° castor wheels allowing effortless movement of heavy trunks and grain drums for floor sweeping and cleaning.'}
+                  </p>
+
+                  <label className="flex items-center gap-2.5 pt-1 cursor-pointer select-none">
+                    <input
+                      type="checkbox"
+                      checked={includeTrolley}
+                      onChange={(e) => setIncludeTrolley(e.target.checked)}
+                      className="w-4 h-4 rounded border-carbon text-orange-electric focus:ring-orange-electric cursor-pointer"
+                    />
+                    <span className="text-xs font-bold text-carbon">
+                      {t.productDetail.includeTrolleyCheck || 'Include Wheeled Trolley Base (+ Movable Trolley)'}
+                    </span>
+                  </label>
+                </div>
+              )}
 
               {/* Quantity Selector & CTAs */}
               <div className="space-y-4 pt-2 border-t border-carbon/10">
@@ -271,6 +358,8 @@ export default function ProductDetailPage() {
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         product={product}
+        selectedVariant={selectedVariantLabel}
+        includeTrolley={includeTrolley}
       />
     </div>
   );

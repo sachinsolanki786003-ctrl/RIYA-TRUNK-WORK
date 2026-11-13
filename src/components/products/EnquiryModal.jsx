@@ -5,10 +5,11 @@ import { X, Send, CheckCircle2, MessageCircle, Phone } from 'lucide-react';
 import { getWhatsAppLink, getPhoneLink } from '../../lib/utils';
 import confetti from 'canvas-confetti';
 
-export default function EnquiryModal({ isOpen, onClose, product = null, enquiryType = 'retail' }) {
+export default function EnquiryModal({ isOpen, onClose, product = null, enquiryType = 'retail', selectedVariant = '', includeTrolley = false }) {
   const { t, lang } = useLanguage();
   const { submitEnquiry, settings } = useBusiness();
 
+  const [trolleySelected, setTrolleySelected] = useState(includeTrolley);
   const [formData, setFormData] = useState({
     customer_name: '',
     phone: '',
@@ -33,14 +34,20 @@ export default function EnquiryModal({ isOpen, onClose, product = null, enquiryT
 
     setLoading(true);
     try {
+      const fullProductName = [
+        product?.name || 'General Inquiry',
+        selectedVariant ? `[${selectedVariant}]` : '',
+        trolleySelected ? '(+ Wheeled Trolley Base)' : ''
+      ].filter(Boolean).join(' ');
+
       const result = await submitEnquiry({
         customer_name: formData.customer_name,
         phone: formData.phone,
         product_id: product?.id || null,
-        product_name: product?.name || 'General Inquiry',
+        product_name: fullProductName,
         quantity: formData.quantity,
         enquiry_type: formData.enquiry_type,
-        message: formData.message,
+        message: formData.message + (trolleySelected ? '\n[Includes Wheeled Trolley Base Request]' : ''),
         status: 'new'
       });
 
@@ -63,6 +70,8 @@ export default function EnquiryModal({ isOpen, onClose, product = null, enquiryT
     product,
     enquiryType: formData.enquiry_type,
     quantity: formData.quantity,
+    variant: selectedVariant,
+    includeTrolley: trolleySelected,
     customMessage: formData.message
   });
 
@@ -201,6 +210,22 @@ export default function EnquiryModal({ isOpen, onClose, product = null, enquiryT
                   </button>
                 </div>
               </div>
+
+              {product?.hasTrolleyOption && (
+                <div className="p-3 rounded-xl bg-orange-50 border border-orange-200">
+                  <label className="flex items-center gap-2 cursor-pointer select-none">
+                    <input
+                      type="checkbox"
+                      checked={trolleySelected}
+                      onChange={(e) => setTrolleySelected(e.target.checked)}
+                      className="w-4 h-4 rounded border-carbon text-orange-electric focus:ring-orange-electric cursor-pointer"
+                    />
+                    <span className="text-xs font-bold text-carbon">
+                      {t.productDetail.includeTrolleyCheck || 'Include Heavy-Duty Wheeled Trolley Base'}
+                    </span>
+                  </label>
+                </div>
+              )}
 
               <div>
                 <label className="block text-xs font-bold text-carbon mb-1">

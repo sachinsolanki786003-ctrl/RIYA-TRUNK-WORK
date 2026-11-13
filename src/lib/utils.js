@@ -8,11 +8,15 @@ export const OFFICIAL_WHATSAPP_RAW = "919723221997";
 /**
  * Generate a prefilled WhatsApp link
  */
-export function getWhatsAppLink({ product = null, enquiryType = 'general', customMessage = '', quantity = '' } = {}) {
+export function getWhatsAppLink({ product = null, enquiryType = 'general', customMessage = '', quantity = '', variant = '', includeTrolley = false } = {}) {
   let message = '';
 
   if (product) {
-    message = `Hello RIYA TRUNK WORK,\n\nI am interested in *${product.name}* (Category: ${product.categoryName || 'Metal Storage'}).\n${quantity ? `Required Quantity: ${quantity}\n` : ''}\nPlease share:\n1. Current Price & Wholesale Rates\n2. Available Sizes & Dimensions\n3. Actual Product Photographs / Video\n4. Delivery or Shop Pickup options at Devabhai Estate.\n\nThank you!`;
+    message = `Hello RIYA TRUNK WORK,\n\nI am interested in *${product.name}* (Category: ${product.categoryName || 'Metal Storage'}).\n` +
+      `${variant ? `Surface Finish: *${variant}*\n` : ''}` +
+      `${includeTrolley ? `Wheeled Trolley Base: *Yes, please include movable trolley*\n` : ''}` +
+      `${quantity ? `Required Quantity: ${quantity}\n` : ''}\n` +
+      `Please share:\n1. Current Price & Wholesale Rates\n2. Available Sizes & Dimensions\n3. Actual Product Photographs / Video\n4. Delivery or Shop Pickup options at Devabhai Estate.\n\nThank you!`;
   } else if (enquiryType === 'wholesale') {
     message = `Hello RIYA TRUNK WORK (Mohanbhai Chauhan),\n\nI am contacting you regarding a *WHOLESALE / BULK ENQUIRY* for metal storage boxes, grain drums (kothi), and GI containers.\n${customMessage ? `Details: ${customMessage}\n` : ''}\nPlease share your wholesale catalog, minimum order quantities, and best trader rates.\n\nThank you.`;
   } else if (enquiryType === 'retail') {
