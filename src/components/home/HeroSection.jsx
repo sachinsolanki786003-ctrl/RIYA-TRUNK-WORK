@@ -117,9 +117,13 @@ export default function HeroSection() {
                 </span>
               </div>
 
-              {/* Central Graphic */}
-              <div className="py-4 my-2 flex items-center justify-center">
-                <ProductIllustration type="svg-trunk-classic" className="w-full h-56 transition-transform duration-500 group-hover:scale-105" />
+              {/* Central Real Product Photograph */}
+              <div className="py-3 my-2 flex items-center justify-center min-h-[220px]">
+                <img
+                  src="/images/products/trunk-horizontal-without-lamination-studio.jpg"
+                  alt="RIYA TRUNK WORK Real Product Photo - Mirror Stainless Steel Trunk"
+                  className="w-full h-52 object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
 
               {/* Bottom Feature Pill Grid */}

@@ -89,8 +89,12 @@ export default function AboutPage() {
               </h3>
             </div>
 
-            <div className="py-2">
-              <ProductIllustration type="svg-trunk-classic" className="w-full h-52" />
+            <div className="py-2 bg-white/10 rounded-2xl p-4 flex items-center justify-center">
+              <img
+                src="/images/products/trunk-horizontal-without-lamination-studio.jpg"
+                alt="RIYA TRUNK WORK Precision Metal Craft"
+                className="w-full h-48 object-contain drop-shadow-md"
+              />
             </div>
 
             <div className="p-4 rounded-2xl bg-darkgrey border border-cream/15 text-xs text-cream/70 space-y-1.5">
