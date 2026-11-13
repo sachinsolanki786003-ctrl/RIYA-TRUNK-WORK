@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 import { useBusiness } from '../../context/BusinessContext';
-import { ArrowUpRight, MessageCircle, Phone, ShieldCheck, Sparkles, Box, CheckCircle } from 'lucide-react';
+import { ArrowUpRight, MessageCircle, Phone, ShieldCheck, Sparkles, Box, CheckCircle, CreditCard, Image as ImageIcon } from 'lucide-react';
 import { getWhatsAppLink, getPhoneLink } from '../../lib/utils';
 import ProductIllustration from '../ui/ProductIllustration';
 
 export default function HeroSection() {
   const { t, lang } = useLanguage();
   const { settings } = useBusiness();
+  const [activeMediaTab, setActiveMediaTab] = useState('card'); // 'card' is default as requested
 
   const brandTitle = lang === 'gu' ? settings.nameGu || 'રિયા ટ્રંક વર્ક' : settings.name;
 
@@ -102,43 +103,106 @@ export default function HeroSection() {
 
           {/* Right Column: Gen Z Industrial Showcase Card (5 Cols) */}
           <div className="lg:col-span-5">
-            <div className="relative bg-white rounded-3xl border-3 border-carbon p-6 shadow-brutal-lg overflow-hidden group">
+            <div className="relative bg-white rounded-3xl border-3 border-carbon p-5 sm:p-6 shadow-brutal-lg overflow-hidden group">
               
               {/* Header inside Card */}
-              <div className="flex items-center justify-between pb-4 border-b border-carbon/10">
+              <div className="flex items-center justify-between pb-3 border-b border-carbon/10 mb-3">
                 <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-orange-electric"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
                   <span className="font-mono text-xs font-bold text-carbon uppercase tracking-wider">
-                    SPEC // RTW-HEAVY-01
+                    {activeMediaTab === 'card' ? 'OFFICIAL BUSINESS CARD' : 'SPEC // RTW-HEAVY-01'}
                   </span>
                 </div>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cream-dark border border-carbon/20 font-bold">
-                  MADE IN GUJARAT
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cream-dark border border-carbon/20 font-bold text-carbon">
+                  {activeMediaTab === 'card' ? '100% VERIFIED' : 'MADE IN GUJARAT'}
                 </span>
               </div>
 
-              {/* Central Real Product Photograph */}
-              <div className="py-3 my-2 flex items-center justify-center min-h-[220px]">
-                <img
-                  src="/images/products/trunk-horizontal-without-lamination-studio.jpg"
-                  alt="RIYA TRUNK WORK Real Product Photo - Mirror Stainless Steel Trunk"
-                  className="w-full h-52 object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500"
-                />
+              {/* View Switcher Tabs (Visiting Card is default) */}
+              <div className="flex items-center gap-1.5 p-1 bg-cream-dark rounded-xl border border-carbon/10 mb-3">
+                <button
+                  type="button"
+                  onClick={() => setActiveMediaTab('card')}
+                  className={`flex-1 flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all ${
+                    activeMediaTab === 'card'
+                      ? 'bg-carbon text-cream shadow-sm'
+                      : 'text-carbon/60 hover:text-carbon hover:bg-white/50'
+                  }`}
+                >
+                  <CreditCard className="w-3.5 h-3.5 text-orange-electric" />
+                  <span>{lang === 'gu' ? 'વિઝિટિંગ કાર્ડ' : lang === 'hi' ? 'विज़िटिंग कार्ड' : 'Official Card'}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveMediaTab('product')}
+                  className={`flex-1 flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all ${
+                    activeMediaTab === 'product'
+                      ? 'bg-carbon text-cream shadow-sm'
+                      : 'text-carbon/60 hover:text-carbon hover:bg-white/50'
+                  }`}
+                >
+                  <ImageIcon className="w-3.5 h-3.5 text-orange-electric" />
+                  <span>{lang === 'gu' ? 'રીયલ પ્રોડક્ટ' : lang === 'hi' ? 'रियल प्रोडक्ट' : 'Real Product'}</span>
+                </button>
+              </div>
+
+              {/* Central Media Container (Visiting Card by default) */}
+              <div className="my-2 min-h-[210px] flex items-center justify-center">
+                {activeMediaTab === 'card' ? (
+                  <div className="w-full relative rounded-2xl overflow-hidden border-2 border-carbon/15 shadow-md bg-white p-1 group/card">
+                    <a
+                      href="/images/riya-trunk-work-visiting-card.jpg"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Click to view full size visiting card"
+                      className="block cursor-zoom-in"
+                    >
+                      <img
+                        src="/images/riya-trunk-work-visiting-card.jpg"
+                        alt="RIYA TRUNK WORK Official Visiting Card - રિયા ટ્રંક વર્ક"
+                        className="w-full h-auto max-h-[220px] object-contain rounded-xl hover:scale-[1.02] transition-transform duration-300 mx-auto"
+                      />
+                      <div className="absolute bottom-2.5 right-2.5 bg-carbon/85 text-cream text-[10px] font-mono px-2 py-0.5 rounded-md font-semibold backdrop-blur-sm opacity-90 group-hover/card:opacity-100 transition-opacity">
+                        🔍 {lang === 'gu' ? 'મોટું જુઓ' : 'View Full'}
+                      </div>
+                    </a>
+                  </div>
+                ) : (
+                  <div className="py-2 flex items-center justify-center w-full">
+                    <img
+                      src="/images/products/trunk-horizontal-without-lamination-studio.jpg"
+                      alt="RIYA TRUNK WORK Real Product Photo - Mirror Stainless Steel Trunk"
+                      className="w-full h-48 object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                )}
               </div>
 
               {/* Bottom Feature Pill Grid */}
-              <div className="bg-cream-light p-4 rounded-2xl border border-carbon/10 space-y-2.5">
+              <div className="bg-cream-light p-3.5 rounded-2xl border border-carbon/10 space-y-2 mt-3">
                 <div className="flex items-center justify-between text-xs">
                   <span className="text-carbon/60 font-medium">{t.story.ownerLabel}</span>
                   <span className="font-bold text-carbon">{settings.owner}</span>
                 </div>
                 <div className="flex items-center justify-between text-xs">
+                  <span className="text-carbon/60 font-medium">WhatsApp:</span>
+                  <a
+                    href={getWhatsAppLink()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold text-whatsapp hover:underline flex items-center gap-1"
+                  >
+                    <MessageCircle className="w-3 h-3 fill-current" />
+                    <span>{settings.whatsappContact || 'અક્ષય એમ. ચૌહાણ'} ({settings.whatsapp})</span>
+                  </a>
+                </div>
+                <div className="flex items-center justify-between text-xs">
                   <span className="text-carbon/60 font-medium">Location:</span>
-                  <span className="font-bold text-carbon truncate max-w-[200px]" title={settings.address}>
-                    Shop No. 6, Devabhai Estate
+                  <span className="font-bold text-carbon truncate max-w-[210px]" title={settings.address}>
+                    Shop No. 6, Devabhai Estate, Thakkarbapanagar
                   </span>
                 </div>
-                <div className="flex items-center justify-between text-xs pt-1 border-t border-carbon/10">
+                <div className="flex items-center justify-between text-xs pt-1.5 border-t border-carbon/10">
                   <span className="text-orange-electric font-bold">Gujarati Name:</span>
                   <span className="font-bold text-carbon">{settings.nameGu || 'રિયા ટ્રંક વર્ક'}</span>
                 </div>
