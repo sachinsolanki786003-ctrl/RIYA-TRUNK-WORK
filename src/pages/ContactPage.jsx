@@ -156,6 +156,11 @@ export default function ContactPage() {
                   <span>{t.contact.addressLabel}</span>
                 </div>
                 <p className="leading-relaxed pl-6">{settings.address}</p>
+                <div className="pl-6 pt-0.5">
+                  <span className="inline-block font-mono text-[10px] text-orange-electric font-bold px-2 py-0.5 rounded bg-cream/10 border border-orange-electric/30">
+                    GPS: 23.040066, 72.642030
+                  </span>
+                </div>
                 <div className="pl-6 pt-1">
                   <a
                     href={settings.mapsDirectionUrl}

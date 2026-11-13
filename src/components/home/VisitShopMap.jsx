@@ -70,6 +70,9 @@ export default function VisitShopMap() {
                     <div className="text-[11px] font-bold font-mono text-carbon/50 uppercase">ADDRESS</div>
                     <div className="font-bold text-carbon text-sm mt-0.5">{settings.address}</div>
                     <div className="text-xs text-carbon/70 mt-0.5">Ahmedabad, Gujarat – 382340</div>
+                    <div className="inline-flex items-center gap-1 font-mono text-[10px] text-orange-electric font-bold mt-1 px-2 py-0.5 rounded bg-orange-50 border border-orange-200">
+                      <span>GPS: 23.040066, 72.642030</span>
+                    </div>
                   </div>
                 </div>
 

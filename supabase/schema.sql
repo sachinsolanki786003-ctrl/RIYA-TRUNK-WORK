@@ -83,6 +83,10 @@ CREATE TABLE IF NOT EXISTS business_settings (
   whatsapp_raw TEXT DEFAULT '919723221997',
   address TEXT DEFAULT 'Shop No. 6, Devabhai Estate, Ahmedabad, Gujarat – 382340',
   address_gu TEXT DEFAULT 'દુકાન નં. ૬, દેવાભાઈ એસ્ટેટ, અમદાવાદ, ગુજરાત – ૩૮૨૩૪૦',
+  latitude NUMERIC DEFAULT 23.04006608245972,
+  longitude NUMERIC DEFAULT 72.6420295386142,
+  map_embed_url TEXT DEFAULT 'https://maps.google.com/maps?q=23.04006608245972,72.6420295386142&hl=en&z=17&output=embed',
+  maps_direction_url TEXT DEFAULT 'https://www.google.com/maps/dir/?api=1&destination=23.04006608245972,72.6420295386142',
   timings TEXT DEFAULT 'Mon - Sat: 9:00 AM - 8:00 PM',
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );

@@ -1,5 +1,5 @@
 // Official Business Information for RIYA TRUNK WORK
-// Reference: Verified Business Card
+// Reference: Verified Business Card & Official GPS Coordinates
 export const defaultBusinessInfo = {
   name: "RIYA TRUNK WORK",
   nameGu: "રિયા ટ્રંક વર્ક",
@@ -17,13 +17,16 @@ export const defaultBusinessInfo = {
   whatsappUrl: "https://wa.me/919723221997",
   address: "Shop No. 6, Devabhai Estate, Ahmedabad, Gujarat – 382340",
   addressGu: "દુકાન નં. ૬, દેવાભાઈ એસ્ટેટ, અમદાવાદ, ગુજરાત – ૩૮૨૩૪૦",
-  addressHi: "दुकान नं. ६, देवाभाई एस्टेट, अहमदाबाद, गुजरात – ३८२३४०",
+  addressHi: "दुकान नं. ६, देवाभाई एस्टेट, अहमदाबाद, गुजरात – ३८२૩૪૦",
   city: "Ahmedabad",
   state: "Gujarat",
   pincode: "382340",
+  latitude: 23.04006608245972,
+  longitude: 72.6420295386142,
+  coordinates: "23.040066, 72.642030",
   businessType: "Wholesale & Retail Metal Products Supplier",
   timings: "Mon - Sat: 9:00 AM - 8:00 PM | Sun: Closed / By Appointment",
-  mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117482.90962386348!2d72.50868128470557!3d23.04791338563363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
-  mapsDirectionUrl: "https://maps.google.com/?q=Devabhai+Estate+Ahmedabad+Gujarat+382340",
-  email: "contact@riyatrunkwork.com" // Placeholder for admin dashboard
+  mapEmbedUrl: "https://maps.google.com/maps?q=23.04006608245972,72.6420295386142&hl=en&z=17&output=embed",
+  mapsDirectionUrl: "https://www.google.com/maps/dir/?api=1&destination=23.04006608245972,72.6420295386142",
+  email: "contact@riyatrunkwork.com"
 };
