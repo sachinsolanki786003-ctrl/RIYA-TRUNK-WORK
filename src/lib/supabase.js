@@ -19,7 +19,7 @@ export const supabase = isSupabaseConfigured
 
 // Local Storage Fallback Store Keys
 const STORAGE_KEYS = {
-  PRODUCTS: 'rtw_products_v2',
+  PRODUCTS: 'rtw_products_v3',
   CATEGORIES: 'rtw_categories_v3',
   ENQUIRIES: 'rtw_enquiries_v1',
   SETTINGS: 'rtw_settings_v2',
@@ -30,8 +30,18 @@ const STORAGE_KEYS = {
 export const localStore = {
   getProducts: () => {
     try {
+      // Clear legacy storage key if exists
+      localStorage.removeItem('rtw_products_v2')
       const stored = localStorage.getItem(STORAGE_KEYS.PRODUCTS)
-      if (stored) return JSON.parse(stored)
+      if (stored) {
+        const parsed = JSON.parse(stored)
+        // Ensure removed products are filtered out
+        const filtered = parsed.filter(p => p.id !== 'rtw-prod-005' && p.id !== 'rtw-prod-006')
+        if (filtered.length !== parsed.length) {
+          localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(filtered))
+        }
+        return filtered
+      }
       localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(initialProducts))
       return initialProducts
     } catch {
