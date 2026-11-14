@@ -13,7 +13,7 @@ export function getWhatsAppLink({ product = null, enquiryType = 'general', custo
 
   if (product) {
     message = `Hello RIYA TRUNK WORK,\n\nI am interested in *${product.name}* (Category: ${product.categoryName || 'Metal Storage'}).\n` +
-      `${variant ? `Surface Finish: *${variant}*\n` : ''}` +
+      `${variant ? `Surface Finish: *${variant} (As per my requirement)*\n` : (product.hasLaminationOption ? 'Surface Finish: *With or Without Lamination (As Required)*\n' : '')}` +
       `${includeTrolley ? `Wheeled Trolley Base: *Yes, please include movable trolley*\n` : ''}` +
       `${quantity ? `Required Quantity: ${quantity}\n` : ''}\n` +
       `Please share:\n1. Current Price & Wholesale Rates\n2. Available Sizes & Dimensions\n3. Actual Product Photographs / Video\n4. Delivery or Shop Pickup options at Devraj Complex, Kathwada.\n\nThank you!`;

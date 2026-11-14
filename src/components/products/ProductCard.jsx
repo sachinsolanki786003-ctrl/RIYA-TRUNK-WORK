@@ -70,26 +70,46 @@ export default function ProductCard({ product }) {
         </div>
       </div>
 
-      {/* Lamination Finish Selector Pills if available */}
-      {hasVariants && (
-        <div className="bg-cream-dark/60 px-4 py-2 border-b border-carbon/10 flex items-center justify-between gap-1">
-          <span className="text-[10px] font-mono font-bold text-carbon/60 uppercase">Finish:</span>
-          <div className="flex items-center gap-1">
+      {/* Lamination Finish Selector & Custom Requirement Banner */}
+      {product.hasLaminationOption && hasVariants && (
+        <div className="bg-cream-dark/80 px-3.5 py-2 border-b border-carbon/10 space-y-1.5">
+          <div className="flex items-center justify-between text-[10px] font-mono font-bold">
+            <span className="text-carbon flex items-center gap-1">
+              <Sparkles className="w-3 h-3 text-orange-electric" />
+              <span>
+                {lang === 'gu' 
+                  ? 'જરૂરિયાત મુજબ ઉપલબ્ધ:' 
+                  : lang === 'hi' 
+                  ? 'आवश्यकता अनुसार उपलब्ध:' 
+                  : 'As Required Finish:'}
+              </span>
+            </span>
+            <span className="text-[9px] uppercase tracking-wider text-orange-electric font-bold bg-white px-1.5 py-0.5 rounded border border-carbon/15">
+              {lang === 'gu' ? 'લેમિનેશન સાથે / વગર' : 'With / Without Film'}
+            </span>
+          </div>
+
+          <div className="grid grid-cols-2 gap-1.5">
             {product.variants.map((v, idx) => {
               const isSelected = selectedVariantIdx === idx;
-              const vLabel = lang === 'gu' ? v.labelGu || v.label : (lang === 'hi' ? v.labelHi || v.label : v.label);
+              const isNoFilm = v.id === 'without-lamination';
               return (
                 <button
                   key={v.id || idx}
+                  type="button"
                   onClick={() => setSelectedVariantIdx(idx)}
-                  className={`px-2 py-0.5 rounded-full text-[10px] font-bold font-mono transition-all ${
+                  className={`py-1 px-2 rounded-lg text-[10px] font-bold font-mono transition-all flex items-center justify-center gap-1 ${
                     isSelected
-                      ? 'bg-carbon text-cream shadow-sm'
+                      ? 'bg-carbon text-cream shadow-sm ring-1 ring-carbon'
                       : 'bg-white text-carbon/70 hover:bg-cream border border-carbon/20'
                   }`}
-                  title={vLabel}
                 >
-                  {v.id === 'without-lamination' ? '✨ No Film' : '🛡️ Film'}
+                  <span>{isNoFilm ? '✨' : '🛡️'}</span>
+                  <span className="truncate">
+                    {isNoFilm 
+                      ? (lang === 'gu' ? 'લેમિનેશન વગર' : lang === 'hi' ? 'बिना लेमिनेशन' : 'Without Film')
+                      : (lang === 'gu' ? 'લેમિનેશન સાથે' : lang === 'hi' ? 'लेमिनेशन सहित' : 'With Film')}
+                  </span>
                 </button>
               );
             })}

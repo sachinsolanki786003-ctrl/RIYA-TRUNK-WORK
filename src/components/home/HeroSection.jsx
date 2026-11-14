@@ -84,18 +84,22 @@ export default function HeroSection() {
             </div>
 
             {/* Quick Trust Highlights */}
-            <div className="pt-6 border-t border-carbon/10 grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs font-semibold text-carbon/75">
-              <div className="flex items-center gap-2">
+            <div className="pt-6 border-t border-carbon/10 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-semibold text-carbon/75">
+              <div className="flex items-center gap-1.5">
                 <CheckCircle className="w-4 h-4 text-orange-electric shrink-0" />
                 <span>{settings.businessType}</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5">
                 <CheckCircle className="w-4 h-4 text-orange-electric shrink-0" />
                 <span>{lang === 'gu' ? 'દેવરાજ કોમ્પલેક્સ, કઠવાડા' : 'Devraj Complex, Kathwada'}</span>
               </div>
-              <div className="flex items-center gap-2 col-span-2 sm:col-span-1">
+              <div className="flex items-center gap-1.5">
                 <CheckCircle className="w-4 h-4 text-orange-electric shrink-0" />
-                <span>Direct Workshop Rates</span>
+                <span>{lang === 'gu' ? 'ડાયરેક્ટ કારખાનાના ભાવ' : 'Direct Workshop Rates'}</span>
+              </div>
+              <div className="flex items-center gap-1.5 col-span-2 sm:col-span-1">
+                <Sparkles className="w-4 h-4 text-orange-electric shrink-0" />
+                <span className="text-orange-electric font-bold">{lang === 'gu' ? 'લેમિનેશન સાથે/વગર જરૂરિયાત મુજબ' : 'With/Without Lamination'}</span>
               </div>
             </div>
 

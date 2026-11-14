@@ -110,35 +110,60 @@ export default function ProductDetailPage() {
               )}
             </div>
 
-            {/* Separate Images / Variant Switcher Gallery */}
-            {hasVariants && (
-              <div className="pt-4 border-t border-carbon/10 space-y-2">
-                <div className="text-[11px] font-mono font-bold text-carbon/70 uppercase flex items-center justify-between">
-                  <span>{t.productDetail.laminationSelector || 'Select Finish / View Variations:'}</span>
-                  <span className="text-orange-electric">{selectedVariantLabel}</span>
+            {/* Lamination Requirement Notice & Variant Selector */}
+            {product.hasLaminationOption && hasVariants && (
+              <div className="pt-4 border-t border-carbon/10 space-y-3">
+                <div className="p-3.5 rounded-2xl bg-cream border border-carbon/20 space-y-1">
+                  <div className="flex items-center justify-between">
+                    <span className="font-display font-bold text-xs text-carbon flex items-center gap-1.5 uppercase">
+                      <Sparkles className="w-3.5 h-3.5 text-orange-electric" />
+                      <span>
+                        {lang === 'gu' 
+                          ? 'તમારી જરૂરિયાત મુજબ બંને ફિનિશ ઉપલબ્ધ' 
+                          : lang === 'hi'
+                          ? 'आपकी आवश्यकता अनुसार दोनों फिनिश उपलब्ध'
+                          : 'Available With or Without Lamination as Required'}
+                      </span>
+                    </span>
+                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-orange-electric text-white">
+                      CUSTOM CHOICE
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-carbon/75 font-sans leading-relaxed">
+                    {lang === 'gu'
+                      ? 'આ પ્રોડક્ટ તમારી જરૂરિયાત મુજબ લેમિનેશન સાથે (પ્રોટેક્ટિવ ફિલ્મ) અથવા લેમિનેશન વગર (મિરર ફિનિશ) મેળવી શકો છો. નીચેથી ફોટો બદલીને જોઈ શકો છો:'
+                      : lang === 'hi'
+                      ? 'यह उत्पाद आपकी आवश्यकता अनुसार लेमिनेशन के साथ (सुरक्षात्मक फिल्म) या बिना लेमिनेशन (मिरर फिनिश) प्राप्त कर सकते हैं:'
+                      : 'This product is available with lamination (protective film) or without lamination (mirror finish) as per your requirement:'}
+                  </p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
                   {product.variants.map((v, idx) => {
                     const isSelected = selectedVariantIdx === idx;
                     const vLabel = lang === 'gu' ? v.labelGu || v.label : (lang === 'hi' ? v.labelHi || v.label : v.label);
+                    const isNoFilm = v.id === 'without-lamination';
                     return (
                       <button
                         key={v.id || idx}
+                        type="button"
                         onClick={() => setSelectedVariantIdx(idx)}
-                        className={`p-2.5 rounded-2xl border-2 transition-all flex items-center gap-3 text-left ${
+                        className={`p-3 rounded-2xl border-2 transition-all flex items-center gap-3 text-left ${
                           isSelected
-                            ? 'border-carbon bg-cream shadow-brutal-sm'
-                            : 'border-carbon/20 bg-cream-light hover:border-carbon/60'
+                            ? 'border-carbon bg-cream shadow-brutal-sm ring-1 ring-carbon'
+                            : 'border-carbon/20 bg-white hover:border-carbon/60'
                         }`}
                       >
-                        <div className="w-12 h-12 rounded-xl bg-white border border-carbon/20 p-1 flex items-center justify-center shrink-0 overflow-hidden">
+                        <div className="w-14 h-14 rounded-xl bg-white border border-carbon/20 p-1 flex items-center justify-center shrink-0 overflow-hidden">
                           <img src={v.image} alt={vLabel} className="w-full h-full object-contain" />
                         </div>
                         <div className="overflow-hidden">
                           <div className="font-bold text-xs text-carbon truncate">{vLabel}</div>
                           <div className="text-[10px] text-carbon/60 font-mono mt-0.5">
-                            {v.id === 'without-lamination' ? '✨ Pure Mirror' : '🛡️ Protective Film'}
+                            {isNoFilm ? '✨ Pure Mirror Polish' : '🛡️ Protective Film'}
+                          </div>
+                          <div className="text-[9px] font-bold text-orange-electric mt-0.5">
+                            {isSelected ? '✓ ACTIVE VIEW' : 'Click to View'}
                           </div>
                         </div>
                       </button>
@@ -260,6 +285,32 @@ export default function ProductDetailPage() {
                       {t.productDetail.includeTrolleyCheck || 'Include Wheeled Trolley Base (+ Movable Trolley)'}
                     </span>
                   </label>
+                </div>
+              )}
+
+              {/* Lamination Requirement Notice */}
+              {product.hasLaminationOption && (
+                <div className="p-3.5 rounded-2xl bg-cream border border-carbon/20 flex items-center justify-between gap-3 text-xs">
+                  <div className="flex items-center gap-2.5 text-carbon">
+                    <Sparkles className="w-4 h-4 text-orange-electric shrink-0" />
+                    <div>
+                      <span className="font-bold block">
+                        {lang === 'gu'
+                          ? 'લેમિનેશન સાથે અથવા વગર (જરૂરિયાત મુજબ ઉપલબ્ધ)'
+                          : lang === 'hi'
+                          ? 'लेमिनेशन सहित या बिना लेमिनेशन (आवश्यकता अनुसार)'
+                          : 'With or Without Lamination (As Required)'}
+                      </span>
+                      <span className="text-[11px] text-carbon/70 block mt-0.5">
+                        {lang === 'gu'
+                          ? 'તમારી પસંદગી મુજબ તૈયાર કરી આપવામાં આવશે.'
+                          : 'Custom supplied according to your requirement.'}
+                      </span>
+                    </div>
+                  </div>
+                  <span className="font-mono text-[10px] font-bold px-2.5 py-1 rounded-full bg-carbon text-cream shrink-0">
+                    {selectedVariantLabel || (lang === 'gu' ? 'જરૂરિયાત મુજબ' : 'As Required')}
+                  </span>
                 </div>
               )}
 
