@@ -10,6 +10,7 @@ export const initialProducts = [
     nameHi: "प्रीमियम स्टेनलेस स्टील (SS) स्टोरेज बॉक्स (ट्रंक / पेटी)",
     slug: "stainless-steel-ss-premium-storage-box",
     category_id: "stainless-steel-products",
+    category_ids: ["stainless-steel-products", "metal-storage-boxes", "galvanized-products"],
     categoryName: "Stainless Steel Products",
     material: "High-Grade Stainless Steel (SS 202 / SS 304 Option)",
     materialGu: "ઉચ્ચ ગુણવત્તાવાળું સ્ટેનલેસ સ્ટીલ (SS 202 / SS 304)",
@@ -44,7 +45,7 @@ export const initialProducts = [
         id: "with-lamination",
         label: "With Lamination (Protective Film)",
         labelGu: "લેમિનેશન સાથે (પ્રોટેક્ટિવ ફિલ્મ)",
-        labelHi: "लेमिनेशन के साथ (सुरक्षात्मक फिल्म)",
+        labelHi: "લેમિનેશન સાથે (પ્રોટેક્ટિવ ફિલ્મ)",
         image: "/images/products/trunk-horizontal-with-lamination-studio.jpg"
       }
     ],
@@ -71,6 +72,7 @@ export const initialProducts = [
     nameHi: "एयरटाइट अनाज भंडारण कोठी / ड्रम (Grain Drums)",
     slug: "airtight-grain-storage-drum-kothi",
     category_id: "grain-storage-drums",
+    category_ids: ["grain-storage-drums", "stainless-steel-products", "galvanized-products"],
     categoryName: "Grain Storage Drums",
     material: "High-Grade Stainless Steel / GI Sheet",
     materialGu: "ઉચ્ચ ગુણવત્તાવાળું સ્ટેનલેસ સ્ટીલ / GI પતરું",
@@ -107,7 +109,7 @@ export const initialProducts = [
         id: "with-lamination",
         label: "With Lamination (Protective Film)",
         labelGu: "લેમિનેશન સાથે (પ્રોટેક્ટિવ ફિલ્મ)",
-        labelHi: "लेमिनेशन के साथ (सुरक्षात्मक फिल्म)",
+        labelHi: "લેમિનેશન સાથે (પ્રોટેક્ટિવ ફિલ્મ)",
         image: "/images/products/drum-vertical-with-lamination.jpg"
       }
     ],
@@ -134,6 +136,7 @@ export const initialProducts = [
     nameHi: "जंबो बिस्तर और गद्दा स्टोरेज ट्रंक (Jumbo Bedding Trunk)",
     slug: "jumbo-bedding-mattress-storage-trunk",
     category_id: "bedding-storage-trunks",
+    category_ids: ["bedding-storage-trunks", "stainless-steel-products", "metal-storage-boxes"],
     categoryName: "Bedding & Mattress Trunks",
     material: "Reinforced Stainless Steel / Heavy Galvanized Sheet",
     materialGu: "મજબૂત સ્ટેનલેસ સ્ટીલ / હેવી ગેલ્વેનાઈઝ્ડ શીટ",
@@ -153,8 +156,7 @@ export const initialProducts = [
     hasLaminationOption: true,
     hasTrolleyOption: true,
     images: [
-      "/images/products/trunk-jumbo-with-lamination-studio.jpg",
-      "/images/products/trunk-horizontal-without-lamination-studio.jpg"
+      "/images/products/trunk-jumbo-with-lamination-studio.jpg"
     ],
     variants: [
       {
@@ -163,13 +165,6 @@ export const initialProducts = [
         labelGu: "લેમિનેશન સાથે (૮K મિરર ફિલ્મ)",
         labelHi: "लेमिनेशन के साथ (८K मिरर फिल्म)",
         image: "/images/products/trunk-jumbo-with-lamination-studio.jpg"
-      },
-      {
-        id: "without-lamination",
-        label: "Without Lamination (Mirror Finish)",
-        labelGu: "લેમિનેશન વગર (મિરર ફિનિશ)",
-        labelHi: "बिना लेमिनेशन (मिरर फिनिश)",
-        image: "/images/products/trunk-horizontal-without-lamination-studio.jpg"
       }
     ],
     shortDescription: "Extra large capacity metal trunk for quilts, mattresses, and blankets. Available with/without lamination and heavy-duty wheeled trolley.",
@@ -187,93 +182,5 @@ export const initialProducts = [
     ],
     imageType: "svg-trunk-jumbo",
     accentColor: "#151515"
-  },
-  {
-    id: "rtw-prod-007",
-    name: "Heavy-Duty Wheeled Trolley Base",
-    nameGu: "ટ્રંક અને કોઠી માટે વ્હીલવાળી હેવી-ડ્યુટી ટ્રોલી (Movable Trolley Base)",
-    nameHi: "ट्रंक और ड्रम के लिए पहियों वाली हेवी-ड्यूटी ट्रॉली (Movable Trolley Base)",
-    slug: "heavy-duty-wheeled-trolley-base",
-    category_id: "metal-storage-boxes",
-    categoryName: "Metal Storage Boxes",
-    material: "Reinforced Structural Steel Angle Frame with 360° Castor Wheels",
-    materialGu: "મજબૂત એંગલ સ્ટીલ ફ્રેમ અને ૩૬૦° ફરી શકે તેવા હેવી વ્હીલ્સ",
-    materialHi: "मजबूत एंगल स्टील फ्रेम और ३६०° घूमने वाले हेवी पहिए",
-    dimensions: "Custom Fabricated to match your trunk or drum size",
-    capacity: "Carries 250+ kg Payload smoothly",
-    capacityGu: "૨૫૦+ કિલો વજન સરળતાથી ખસેડી શકે તેવી ક્ષમતા",
-    capacityHi: "२५०+ किलो वजन आसानी से उठाने योग्य",
-    price: "Available as Add-On or Standalone - Enquire",
-    priceGu: "ટ્રંક સાથે અથવા અલગથી ઉપલબ્ધ - ભાવ માટે સંપર્ક કરો",
-    priceHi: "ट्रंक के साथ या अलग से उपलब्ध - संपर्क करें",
-    priceNumeric: 0,
-    availability: "In Stock / Made to Order",
-    availabilityGu: "સ્ટોકમાં ઉપલબ્ધ / ઓર્ડર મુજબ",
-    availabilityHi: "स्टॉक में उपलब्ध / ऑर्डर पर",
-    featured: true,
-    published: true,
-    isDemo: false,
-    hasLaminationOption: false,
-    hasTrolleyOption: true,
-    images: [
-      "/images/products/trunk-horizontal-without-lamination-studio.jpg"
-    ],
-    shortDescription: "Custom heavy-duty rolling trolley with 4 castor wheels designed to easily move heavy metal trunks and grain drums for floor cleaning.",
-    shortDescriptionGu: "ભારે મેટલ ટ્રંક અને અનાજની કોઠીને સરળતાથી ફેરવવા અને નીચે સફાઈ કરવા માટે ૪ વ્હીલવાળી હેવી ટ્રોલી.",
-    shortDescriptionHi: "भारी मेटल ट्रंक और अनाज कोठी को आसानी से खिसकाने व फर्श साफ रखने के लिए पहियों वाली मजबूत ट्रॉली।",
-    fullDescription: "Our specialized movable trolley base solves the heavy lifting problem in Indian homes. Fabricated with heavy gauge steel angle and 360-degree swivel wheels, it allows even elderly family members to effortlessly move 150-200 kg trunks and grain storage drums for broom cleaning or room reorganization.",
-    fullDescriptionGu: "ઘરમાં અનાજની ભરેલી ભારે કોઠી કે કપડાંના મોટા ટ્રંકને ખસેડવાનું કામ હવે એકદમ સરળ. ૪ મજબૂત વ્હીલ્સ સાથે બનેલી આ ટ્રોલી ફ્લોર પર સ્ક્રૅચ પણ પડવા દેતી નથી અને સફાઈ સરળ બનાવે છે.",
-    fullDescriptionHi: "अनाज से भरे भारी ड्रम या बड़े ट्रंक को कमरे में आसानी से खिसकाने के लिए यह ट्रॉली बनाई गई है। पहियों की मदद से फर्श पर खरोंच नहीं आती और सफाई आसान हो जाती है।",
-    specifications: [
-      { key: "Wheel Type", value: "4x Heavy Duty 360° Swivel Castor Wheels" },
-      { key: "Frame", value: "Reinforced Steel Angle Base" },
-      { key: "Floor Protection", value: "Non-Marking Smooth Rolling Wheels" },
-      { key: "Compatibility", value: "Fits all sizes of trunks, drums, and boxes" }
-    ],
-    imageType: "svg-trunk-compact",
-    accentColor: "#FF6538"
-  },
-  {
-    id: "rtw-prod-001",
-    name: "Classic Heavy-Duty Metal Trunk",
-    nameGu: "ક્લાસિક હેવી-ડ્યુટી મેટલ ટ્રંક (પેટી)",
-    nameHi: "क्लासिक हेवी-ड्यूटी मेटल ट्रंक (पेटी)",
-    slug: "classic-heavy-duty-metal-trunk",
-    category_id: "metal-storage-boxes",
-    categoryName: "Metal Storage Boxes",
-    material: "High-Grade CRC Steel Sheet (Powder-Coated / Galvanized)",
-    materialGu: "ઉચ્ચ ગુણવત્તાવાળી CRC સ્ટીલ શીટ",
-    materialHi: "उच्च गुणवत्ता वाली CRC स्टील शीट",
-    dimensions: "36\" L x 20\" W x 18\" H",
-    capacity: "Approx. 150 - 180 Liters",
-    price: "Contact for Wholesale / Retail Price",
-    priceGu: "જથ્થાબંધ / છૂટક ભાવ માટે સંપર્ક કરો",
-    priceHi: "थोक / खुदरा मूल्य के लिए संपर्क करें",
-    priceNumeric: 0,
-    availability: "In Stock / Made to Order",
-    availabilityGu: "સ્ટોકમાં ઉપલબ્ધ / ઓર્ડર પર બનાવી આપવામાં આવે છે",
-    availabilityHi: "स्टॉक में उपलब्ध / ऑर्डर पर तैयार",
-    featured: true,
-    published: true,
-    isDemo: false,
-    hasLaminationOption: false,
-    hasTrolleyOption: true,
-    images: [
-      "/images/products/trunk-horizontal-without-lamination-studio.jpg"
-    ],
-    shortDescription: "Reinforced industrial trunk with welded corner guards, lockable safety latch, and optional wheeled trolley.",
-    shortDescriptionGu: "વેલ્ડેડ કોર્નર ગાર્ડ્સ, સેફ્ટી લૉક લેચ, મજબૂત સ્ટીલ હેન્ડલ્સ અને વ્હીલવાળી ટ્રોલી વિકલ્પ સાથેની ટકાઉ લોખંડની પેટી.",
-    shortDescriptionHi: "मजबूत वेल्डेड कॉर्नर गार्ड, सेफ्टी लॉक लैच, हेवी स्टील हैंडल और व्हील ट्रॉली विकल्प के साथ मजबूत पेटी।",
-    fullDescription: "Our flagship metal storage box is built for decades of reliable use. Fabricated with precision-folded steel sheet, it features dual-riveted side lifting handles, reinforced lid hinges, and a central padlock hasp. Optional wheeled trolley base available.",
-    fullDescriptionGu: "આ ક્લાસિક મેટલ ટ્રંક વર્ષો સુધી ટકાઉ રહે તે રીતે તૈયાર કરવામાં આવેલ છે. ઘરમાં કિંમતી સામાન, કપડાં, દુકાનનો સ્ટોક સુરક્ષિત રાખવા માટે આદર્શ છે.",
-    fullDescriptionHi: "यह क्लासिक मेटल ट्रंक वर्षों तक चलने के लिए बनाया गया है। घरेलू सामान, कपड़े, दुकान का स्टॉक या महत्वपूर्ण सामग्री सुरक्षित रखने के लिए उपयुक्त।",
-    specifications: [
-      { key: "Gauge", value: "20 / 22 Gauge Heavy Duty" },
-      { key: "Trolley Base", value: "Heavy-Duty Wheeled Rolling Trolley Available (Optional)" },
-      { key: "Locking", value: "Heavy Padlock Central Latch + Side Latches" },
-      { key: "Finish", value: "Corrosion Resistant Primer & Industrial Paint" }
-    ],
-    imageType: "svg-trunk-classic",
-    accentColor: "#FF6538"
   }
 ];

@@ -33,6 +33,7 @@ export default function ProductsPage() {
       result = result.filter(p => 
         p.category_id === selectedCategory || 
         p.categorySlug === selectedCategory ||
+        (p.category_ids && p.category_ids.includes(selectedCategory)) ||
         p.categoryName?.toLowerCase().includes(selectedCategory.toLowerCase())
       );
     }
