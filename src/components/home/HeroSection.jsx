@@ -91,7 +91,7 @@ export default function HeroSection() {
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-orange-electric shrink-0" />
-                <span>Devabhai Estate, Ahmedabad</span>
+                <span>{lang === 'gu' ? 'દેવરાજ કોમ્પલેક્સ, કઠવાડા' : 'Devraj Complex, Kathwada'}</span>
               </div>
               <div className="flex items-center gap-2 col-span-2 sm:col-span-1">
                 <CheckCircle className="w-4 h-4 text-orange-electric shrink-0" />
@@ -193,13 +193,13 @@ export default function HeroSection() {
                     className="font-bold text-whatsapp hover:underline flex items-center gap-1"
                   >
                     <MessageCircle className="w-3 h-3 fill-current" />
-                    <span>{settings.whatsappContact || 'અક્ષય એમ. ચૌહાણ'} ({settings.whatsapp})</span>
+                    <span>{settings.whatsappContactGu || settings.whatsappContact || 'સંપર્ક કરો, ચૌહાણ'} ({settings.whatsapp})</span>
                   </a>
                 </div>
                 <div className="flex items-center justify-between text-xs">
                   <span className="text-carbon/60 font-medium">Location:</span>
                   <span className="font-bold text-carbon truncate max-w-[210px]" title={settings.address}>
-                    Shop No. 6, Devabhai Estate, Thakkarbapanagar
+                    {lang === 'gu' ? 'દેવરાજ કોમ્પલેક્સ, કઠવાડા' : 'Devraj Complex, Kathwada'}
                   </span>
                 </div>
                 <div className="flex items-center justify-between text-xs pt-1.5 border-t border-carbon/10">

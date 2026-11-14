@@ -9,7 +9,7 @@ export const translations = {
       fullName: "રિયા ટ્રંક વર્ક – અમદાવાદ",
       tagline: "સ્ટોરેજ, પણ સાવ આઇકોનિક.",
       subtagline: "રોજિંદા જીવન અને પેઢીઓ માટે પ્રીમિયમ મેટલ ટ્રંક અને સ્ટોરેજ સોલ્યુશન્સ.",
-      shopLabel: "દુકાન નં. ૬, દેવાભાઈ એસ્ટેટ, અમદાવાદ",
+      shopLabel: "શોપ નં. ૬, દેવરાજ કોમ્પલેક્સ, કઠવાડા, અમદાવાદ",
       wholesaleRetailTag: "જથ્થાબંધ અને છૂટક વિક્રેતા"
     },
     nav: {
@@ -65,7 +65,7 @@ export const translations = {
       p2: "દરેક ટ્રંક અને કોઠી ઉચ્ચ ગુણવત્તાવાળા સીઆરસી (CRC), ગેલ્વેનાઈઝ્ડ (GI) પતરાં તથા સ્ટેનલેસ સ્ટીલમાંથી કાળજીપૂર્વક તૈયાર કરવામાં આવે છે. મજબૂત વેલ્ડિંગ, મજબૂત હેન્ડલ્સ અને સેફ્ટી લૉક સાથે તે વર્ષો સુધી અડીખમ રહે છે.",
       ownerLabel: "સંચાલક / માલિક:",
       ownerName: "મોહનભાઈ પી. ચૌહાણ",
-      locationLabel: "સ્થળ: દેવાભાઈ એસ્ટેટ, અમદાવાદ"
+      locationLabel: "સ્થળ: દેવરાજ કોમ્પલેક્સ, કઠવાડા, અમદાવાદ"
     },
     whyUs: {
       heading: "રિયા ટ્રંક વર્ક શા માટે?",
@@ -164,7 +164,7 @@ export const translations = {
       subtitle: "મજબૂત સંગ્રહ. વિશ્વાસપાત્ર ગુણવત્તા.",
       tag: "અમારા વિશે",
       storyHeading: "રિયા ટ્રંક વર્ક વિશે",
-      storyBody1: "રિયા ટ્રંક વર્ક અમદાવાદમાં આવેલી એક અગ્રણી મેટલ ફેબ્રિકેશન અને સ્ટોરેજ સોલ્યુશન્સ પ્રદાતા છે. અમારી દુકાન દેવાભાઈ એસ્ટેટ, અમદાવાદ ખાતે આવેલી છે, જેનું સંચાલન મોહનભાઈ પી. ચૌહાણ કરે છે.",
+      storyBody1: "રિયા ટ્રંક વર્ક અમદાવાદમાં આવેલી એક અગ્રણી મેટલ ફેબ્રિકેશન અને સ્ટોરેજ સોલ્યુશન્સ પ્રદાતા છે. અમારી દુકાન દેવરાજ કોમ્પલેક્સ, કઠવાડા, અમદાવાદ ખાતે આવેલી છે, જેનું સંચાલન મોહનભાઈ પી. ચૌહાણ કરે છે.",
       storyBody2: "અમે વર્ષોથી ગ્રાહકોની જરૂરિયાતોને અનુરૂપ ટકાઉ મેટલ ટ્રંક, અનાજ ભરવાની કોઠીઓ (Grain Storage Drums), પથારી અને ગાદલાં માટેના મોટા જમ્બો ટ્રંક, સ્ટેનલેસ સ્ટીલ (SS) ડબ્બા અને ગેલ્વેનાઈઝ્ડ (GI) પતરાના ઉત્પાદનો પૂરા પાડીએ છીએ.",
       storyBody3: "અમારી પ્રાથમિકતા હંમેશા મજબૂત મટીરીયલ અને વિશ્વસનીય કારીગરી રહી છે, જેના કારણે સ્થાનિક પરિવારો અને અમદાવાદના વેપારીઓ અમારા પર વિશ્વાસ મૂકે છે.",
       materialsTitle: "અમે વાપરીએ છીએ તે મટીરીયલ્સ",
@@ -179,7 +179,7 @@ export const translations = {
       quickLinks: "ઝડપી લિંક્સ",
       categories: "પ્રોડક્ટ્સ",
       contact: "સંપર્ક વિગત",
-      address: "દુકાન નં. ૬, દેવાભાઈ એસ્ટેટ, અમદાવાદ, ગુજરાત – ૩૮૨૩૪૦",
+      address: "શોપ નં. ૬, દેવરાજ કોમ્પલેક્સ, કઠવાડા, અમદાવાદ, ગુજરાત – ૩૮૨૩૩૦",
       phone: "+91 97248 32538",
       whatsapp: "+91 97232 21997",
       rights: "સર્વાધિકાર સુરક્ષિત.",
@@ -193,7 +193,7 @@ export const translations = {
       fullName: "रिया ट्रंक वर्क – अहमदाबाद",
       tagline: "STORAGE, BUT MAKE IT ICONIC.",
       subtagline: "दैनिक जीवन और पीढ़ियों के लिए प्रीमियम मेटल ट्रंक और स्टोरेज समाधान।",
-      shopLabel: "दुकान नं. ६, देवाभाई एस्टेट, अहमदाबाद",
+      shopLabel: "दुकान नं. ६, देवराज कॉम्प्लेक्स, कठवाड़ा, अहमदाबाद",
       wholesaleRetailTag: "थोक एवं खुदरा विक्रेता"
     },
     nav: {
@@ -249,7 +249,7 @@ export const translations = {
       p2: "प्रत्येक ट्रंक और ड्रम उच्च गुणवत्ता वाले सीआरसी (CRC), गैल्वेनाइज्ड (GI) और स्टेनलेस स्टील से तैयार किया जाता है। मजबूत वेल्डिंग और सुरक्षा लॉक के साथ ये वर्षों तक बेजोड़ रहते हैं।",
       ownerLabel: "संचालक / संपर्क:",
       ownerName: "मोहनभाई पी. चौहान",
-      locationLabel: "स्थान: देवाभाई एस्टेट, अहमदाबाद"
+      locationLabel: "स्थान: देवराज कॉम्प्लेक्स, कठवाड़ा, अहमदाबाद"
     },
     whyUs: {
       heading: "रिया ट्रंक वर्क क्यों चुनें?",
@@ -348,7 +348,7 @@ export const translations = {
       subtitle: "मजबूत भंडारण। अटूट विश्वसनीयता।",
       tag: "हमारे बारे में",
       storyHeading: "रिया ट्रंक वर्क के बारे में",
-      storyBody1: "रिया ट्रंक वर्क अहमदाबाद में स्थित एक प्रमुख मेटल फैब्रिकेशन और स्टोरेज समाधान प्रतिष्ठान है। हमारी दुकान देवाभाई एस्टेट, अहमदाबाद में स्थित है, जिसका संचालन मोहनभाई पी. चौहान द्वारा किया जाता है।",
+      storyBody1: "रिया ट्रंक वर्क अहमदाबाद में स्थित एक प्रमुख मेटल फैब्रिकेशन और स्टोरेज समाधान प्रतिष्ठान है। हमारी दुकान देवराज कॉम्प्लेक्स, कठवाड़ा, अहमदाबाद में स्थित है, जिसका संचालन मोहनभाई पी. चौहान द्वारा किया जाता है।",
       storyBody2: "हम ग्राहकों की आवश्यकता अनुसार टिकाऊ मेटल ट्रंक, अनाज भंडारण कोठी (Grain Drums), रजाई-गद्दों के बड़े जंबो ट्रंक, स्टेनलेस स्टील (SS) कंटेनर और गैल्वेनाइज्ड (GI) मेटल उत्पाद उपलब्ध कराते हैं।",
       storyBody3: "हमारी प्राथमिकता हमेशा मजबूत सामग्री और कुशल कारीगरी रही है, जिस पर अहमदाबाद के परिवार और व्यापारी विश्वास करते हैं।",
       materialsTitle: "हमारे द्वारा प्रयुक्त प्रमुख सामग्रियां",
@@ -363,7 +363,7 @@ export const translations = {
       quickLinks: "त्वरित लिंक",
       categories: "उत्पाद",
       contact: "संपर्क विवरण",
-      address: "दुकान नं. ६, देवाभाई एस्टेट, अहमदाबाद, गुजरात – ३८२३४૦",
+      address: "दुकान नं. ६, देवराज कॉम्प्लेक्स, कठवाड़ा, अहमदाबाद, गुजरात – ३८२३३०",
       phone: "+91 97248 32538",
       whatsapp: "+91 97232 21997",
       rights: "सर्वाधिकार सुरक्षित।",
@@ -377,7 +377,7 @@ export const translations = {
       fullName: "RIYA TRUNK WORK – Ahmedabad",
       tagline: "STORAGE, BUT MAKE IT ICONIC.",
       subtagline: "Premium metal trunks & storage solutions engineered for everyday life and generational durability.",
-      shopLabel: "Shop No. 6, Devabhai Estate, Ahmedabad",
+      shopLabel: "Shop No. 6, Devraj Complex, Kathwada, Ahmedabad",
       wholesaleRetailTag: "Wholesale & Retail Supplier"
     },
     nav: {
@@ -433,7 +433,7 @@ export const translations = {
       p2: "Every trunk and drum is precision-built using high-tensile CRC steel, galvanized (GI) sheet, or surgical-grade stainless steel. With corner reinforcements and heavy padlock eyelets, your valuables remain secure.",
       ownerLabel: "Proprietor / Contact:",
       ownerName: "Mohanbhai P. Chauhan",
-      locationLabel: "Location: Devabhai Estate, Ahmedabad"
+      locationLabel: "Location: Devraj Complex, Kathwada, Ahmedabad"
     },
     whyUs: {
       heading: "WHY RIYA TRUNK WORK?",
@@ -532,7 +532,7 @@ export const translations = {
       subtitle: "Heavy-duty durability meets modern utility.",
       tag: "OUR STORY",
       storyHeading: "About RIYA TRUNK WORK",
-      storyBody1: "RIYA TRUNK WORK is an established metal fabrication and storage products manufacturer and supplier located at Devabhai Estate in Ahmedabad, Gujarat, founded and managed by Mohanbhai P. Chauhan.",
+      storyBody1: "RIYA TRUNK WORK is an established metal fabrication and storage products manufacturer and supplier located at Devraj Complex, Kathwada in Ahmedabad, Gujarat, founded and managed by Mohanbhai P. Chauhan.",
       storyBody2: "We specialize in the craftsmanship of heavy-duty metal storage trunks, airtight grain storage drums (Kothi/Peep), extra-capacity bedding and mattress trunks, stainless steel (SS) boxes, and galvanized (GI) containers.",
       storyBody3: "Our philosophy is grounded in robust metal gauge standards, durable hardware, and honest relationships with both retail customers and wholesale dealers across Gujarat.",
       materialsTitle: "Core Engineering Materials",
@@ -547,7 +547,7 @@ export const translations = {
       quickLinks: "Quick Links",
       categories: "Categories",
       contact: "Contact",
-      address: "Shop No. 6, Devabhai Estate, Ahmedabad, Gujarat – 382340",
+      address: "Shop No. 6, Devraj Complex, Kathwada, Ahmedabad, Gujarat – 382330",
       phone: "+91 97248 32538",
       whatsapp: "+91 97232 21997",
       rights: "All Rights Reserved.",

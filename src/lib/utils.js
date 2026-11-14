@@ -16,13 +16,13 @@ export function getWhatsAppLink({ product = null, enquiryType = 'general', custo
       `${variant ? `Surface Finish: *${variant}*\n` : ''}` +
       `${includeTrolley ? `Wheeled Trolley Base: *Yes, please include movable trolley*\n` : ''}` +
       `${quantity ? `Required Quantity: ${quantity}\n` : ''}\n` +
-      `Please share:\n1. Current Price & Wholesale Rates\n2. Available Sizes & Dimensions\n3. Actual Product Photographs / Video\n4. Delivery or Shop Pickup options at Devabhai Estate.\n\nThank you!`;
+      `Please share:\n1. Current Price & Wholesale Rates\n2. Available Sizes & Dimensions\n3. Actual Product Photographs / Video\n4. Delivery or Shop Pickup options at Devraj Complex, Kathwada.\n\nThank you!`;
   } else if (enquiryType === 'wholesale') {
     message = `Hello RIYA TRUNK WORK (Mohanbhai Chauhan),\n\nI am contacting you regarding a *WHOLESALE / BULK ENQUIRY* for metal storage boxes, grain drums (kothi), and GI containers.\n${customMessage ? `Details: ${customMessage}\n` : ''}\nPlease share your wholesale catalog, minimum order quantities, and best trader rates.\n\nThank you.`;
   } else if (enquiryType === 'retail') {
-    message = `Hello RIYA TRUNK WORK,\n\nI would like to enquire for *RETAIL / PERSONAL USE* metal storage box / grain drum.\n${customMessage ? `Requirement: ${customMessage}\n` : ''}\nPlease let me know available models and shop timings at Devabhai Estate.\n\nThank you.`;
+    message = `Hello RIYA TRUNK WORK,\n\nI would like to enquire for *RETAIL / PERSONAL USE* metal storage box / grain drum.\n${customMessage ? `Requirement: ${customMessage}\n` : ''}\nPlease let me know available models and shop timings at Devraj Complex, Kathwada.\n\nThank you.`;
   } else {
-    message = customMessage || `Hello RIYA TRUNK WORK,\n\nI am visiting your website and would like to know more about your metal trunks and storage products at Shop No. 6, Devabhai Estate, Ahmedabad.\n\nThank you.`;
+    message = customMessage || `Hello RIYA TRUNK WORK,\n\nI am visiting your website and would like to know more about your metal trunks and storage products at Shop No. 6, Devraj Complex, Kathwada, Ahmedabad.\n\nThank you.`;
   }
 
   return `https://wa.me/${OFFICIAL_WHATSAPP_RAW}?text=${encodeURIComponent(message)}`;

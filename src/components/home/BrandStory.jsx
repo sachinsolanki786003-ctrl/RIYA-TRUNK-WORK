@@ -92,7 +92,7 @@ export default function BrandStory() {
                 <span className="font-mono text-[11px] text-silver font-bold uppercase">SUPPLY NETWORK</span>
               </div>
               <h4 className="font-display font-bold text-lg text-white">
-                Shop No. 6, Devabhai Estate
+                Shop No. 6, Devraj Complex, Kathwada
               </h4>
               <p className="text-xs text-cream/70 leading-relaxed">
                 Conveniently accessible in Ahmedabad with on-spot loading for trucks, tempos, and direct personal customer vehicles.
