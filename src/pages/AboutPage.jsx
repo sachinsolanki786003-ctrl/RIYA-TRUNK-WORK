@@ -51,8 +51,8 @@ export default function AboutPage() {
               </div>
               <div className="p-3.5 rounded-2xl bg-cream border border-carbon/15">
                 <span className="font-mono text-[10px] text-carbon/50 uppercase font-bold block">COMMERCIAL FACILITY</span>
-                <span className="font-bold text-carbon text-sm mt-0.5 block">{settings.address || 'Shop No. 6, Devraj Complex, Kathwada'}</span>
-                <span className="text-carbon/60 text-[11px] block mt-0.5">Ahmedabad, Gujarat – 382330</span>
+                <span className="font-bold text-carbon text-sm mt-0.5 block">{settings.address || 'Shop No. 6, Devabhai Estate, Thakkarbapanagar'}</span>
+                <span className="text-carbon/60 text-[11px] block mt-0.5">Ahmedabad, Gujarat – 382350</span>
               </div>
             </div>
 

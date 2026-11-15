@@ -194,7 +194,7 @@ export default function AdminDashboardPage() {
                 </span>
               </div>
               <div className="flex items-center gap-3 text-xs text-carbon/60 mt-0.5">
-                <span>RIYA TRUNK WORK • Shop No. 6, Devraj Complex, Kathwada</span>
+                <span>RIYA TRUNK WORK • Shop No. 6, Devabhai Estate, Thakkarbapanagar</span>
                 <span>•</span>
                 <span className="flex items-center gap-1 font-mono text-[11px]">
                   <Database className="w-3 h-3 text-orange-electric" />

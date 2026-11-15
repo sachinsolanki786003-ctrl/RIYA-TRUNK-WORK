@@ -69,7 +69,7 @@ export default function VisitShopMap() {
                   <div>
                     <div className="text-[11px] font-bold font-mono text-carbon/50 uppercase">ADDRESS</div>
                     <div className="font-bold text-carbon text-sm mt-0.5">{settings.address}</div>
-                    <div className="text-xs text-carbon/70 mt-0.5">Ahmedabad, Gujarat – 382340</div>
+                    <div className="text-xs text-carbon/70 mt-0.5">Ahmedabad, Gujarat – 382350</div>
                     <div className="inline-flex items-center gap-1 font-mono text-[10px] text-orange-electric font-bold mt-1 px-2 py-0.5 rounded bg-orange-50 border border-orange-200">
                       <span>GPS: 23.040066, 72.642030</span>
                     </div>
@@ -114,7 +114,7 @@ export default function VisitShopMap() {
           {/* Right Map View (7 Cols) */}
           <div className="lg:col-span-7 rounded-3xl border-2 border-carbon overflow-hidden shadow-brutal min-h-[350px] relative bg-cream-dark">
             <iframe
-              title="RIYA TRUNK WORK Location at Devraj Complex Kathwada Ahmedabad"
+              title="RIYA TRUNK WORK Location at Devabhai Estate Thakkarbapanagar Ahmedabad"
               src={settings.mapEmbedUrl}
               className="w-full h-full min-h-[380px] border-0"
               allowFullScreen=""
@@ -124,8 +124,8 @@ export default function VisitShopMap() {
 
             <div className="absolute bottom-4 left-4 right-4 bg-carbon/95 text-cream p-3 rounded-2xl border border-cream/20 flex items-center justify-between text-xs backdrop-blur-sm">
               <div className="truncate pr-2">
-                <span className="font-bold text-white">Shop No. 6, Devraj Complex, Kathwada</span>
-                <span className="hidden sm:inline text-cream/70"> • Ahmedabad, Gujarat 382330</span>
+                <span className="font-bold text-white">Shop No. 6, Devabhai Estate, Thakkarbapanagar</span>
+                <span className="hidden sm:inline text-cream/70"> • Ahmedabad, Gujarat 382350</span>
               </div>
               <a
                 href={settings.mapsDirectionUrl}

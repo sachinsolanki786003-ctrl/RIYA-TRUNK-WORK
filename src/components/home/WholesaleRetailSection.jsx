@@ -68,7 +68,7 @@ export default function WholesaleRetailSection() {
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-orange-electric"></span>
-                  <span>Direct truck/tempo loading from Devraj Complex, Kathwada shop</span>
+                  <span>Direct truck/tempo loading from Devabhai Estate, Thakkarbapanagar shop</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-orange-electric"></span>

@@ -180,7 +180,7 @@ export default function ProductDetailPage() {
                 <span>{availability || 'Available at Shop No. 6'}</span>
               </span>
               <span className="text-carbon/60 font-mono text-[11px]">
-                Workshop: Devraj Complex, Kathwada
+                Workshop: Devabhai Estate, Thakkarbapanagar
               </span>
             </div>
 
